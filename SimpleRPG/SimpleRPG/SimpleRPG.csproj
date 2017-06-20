@@ -44,10 +44,11 @@
   <ItemGroup>
     <Compile Include="Exceptions\NegativeAttackAttemptException.cs" />
     <Compile Include="MonsterFactory\Rodent.cs" />
-    <Compile Include="MonsterFactory\EnemyFactory.cs" />
+    <Compile Include="MonsterFactory\Enemy.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Exceptions\NameAlreadyExistsException.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Randomizer.cs" />
   </ItemGroup>

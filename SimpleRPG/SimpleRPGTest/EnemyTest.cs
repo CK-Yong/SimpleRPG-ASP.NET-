@@ -7,14 +7,14 @@ namespace SimpleRPGTest
     [TestClass]
     public class EnemyTest
     {
-        private Entity _entity;
+        private Player player;
         private Enemy oneEyedRat;
 
         [TestInitialize]
         public void InitializeVariables()
         {
             oneEyedRat = new Rodent("One Eyed Rat");
-            _entity = new Entity {Name = "CK Yong"};
+            player = new Player {Name = "CK Yong"};
         }
 
         [TestMethod]
@@ -26,8 +26,8 @@ namespace SimpleRPGTest
         [TestMethod]
         public void MonsterShouldBeAbleToAttackPlayer()
         {
-            oneEyedRat.RegularAttack(_entity);
-            Assert.AreEqual(97, _entity.Life, 3);
+            oneEyedRat.RegularAttack(player);
+            Assert.AreEqual(97, player.Life, 3);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace SimpleRPGTest
         {
             Enemy oneEyedRat = new Rodent("One Eyed Rat");
             for (var i = 0; i < 50; i++)
-                _entity.RegularAttack(oneEyedRat);
+                player.RegularAttack(oneEyedRat);
             Assert.IsTrue(oneEyedRat.IsDead);
         }
     }

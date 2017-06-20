@@ -7,12 +7,12 @@ namespace SimpleRPGTest
     [TestClass]
     public class PlayerTest
     {
-        private Entity player;
+        private Player player;
 
         [TestInitialize]
         public void InitializeVariables()
         {
-            player = new Entity();
+            player = new Player();
             player.Name = "CK Yong";
         }
 
