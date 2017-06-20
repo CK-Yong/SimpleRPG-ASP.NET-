@@ -2,7 +2,7 @@
 
 namespace SimpleRPG.MonsterFactory
 {
-    public abstract class Enemy : Player
+    public abstract class Enemy : Entity
     {
         public override int Attack { get; protected set; }
         public override int Defense { get; protected set; }

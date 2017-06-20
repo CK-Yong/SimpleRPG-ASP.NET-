@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SimpleRPG;
 using SimpleRPG.MonsterFactory;
 
@@ -8,12 +7,12 @@ namespace SimpleRPGTest
     [TestClass]
     public class PlayerTest
     {
-        private Player player;
+        private Entity player;
 
         [TestInitialize]
         public void InitializeVariables()
         {
-            player = new Player();
+            player = new Entity();
             player.Name = "CK Yong";
         }
 
@@ -34,17 +33,15 @@ namespace SimpleRPGTest
         {
             Enemy oneEyedRat = new Rodent("One Eyed Rat");
             player.RegularAttack(oneEyedRat);
-            Assert.AreEqual(21, oneEyedRat.Life, 3);
+            Assert.AreEqual(20, oneEyedRat.Life, 3);
         }
 
         [TestMethod]
         public void PlayerShouldBeAbleToDie()
         {
             Enemy oneEyedRat = new Rodent("One Eyed Rat");
-            for (int i = 0; i < 100; i++)
-            {
+            for (var i = 0; i < 100; i++)
                 oneEyedRat.RegularAttack(player);
-            }
             Assert.IsTrue(player.IsDead);
         }
     }

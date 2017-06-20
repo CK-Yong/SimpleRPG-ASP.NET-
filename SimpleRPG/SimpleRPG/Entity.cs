@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Net.Mime;
-using System.Text;
-using System.Threading.Tasks;
+using SimpleRPG.Tools;
 
 namespace SimpleRPG
 {
     [SuppressMessage("ReSharper", "ArrangeAccessorOwnerBody")]
-    public class Player
+    public class Entity
     {
-        public Player(int attack = 5, int defense = 5, int life = 100, int mana = 100, int stamina = 100,
+        private string _name;
+
+        public Entity(int attack = 5, int defense = 5, int life = 100, int mana = 100, int stamina = 100,
             int experience = 0)
         {
             Attack = attack;
@@ -23,17 +20,13 @@ namespace SimpleRPG
             Experience = experience;
         }
 
-        private string _name;
-
         public string Name
         {
             get { return _name; }
             set
             {
                 if (_name != null)
-                {
                     throw new NameAlreadyExistsException();
-                }
                 _name = value;
             }
         }
@@ -48,36 +41,36 @@ namespace SimpleRPG
 
         private void TakeDamage(int incomingDamage)
         {
-            if (incomingDamage < 0)
-            {
+            if (incomingDamage <= 0)
                 incomingDamage = 0;
-            }
             var resultingDamage = ApplyDefenseModifier(incomingDamage);
-            Console.WriteLine($"{Name} took {resultingDamage} damage.");
             Life -= resultingDamage;
+            Console.WriteLine($"{Name} took {resultingDamage} damage.");
             Console.WriteLine($"{Name} has {Life} hitpoints left.");
             if (IsDead)
-            {
                 Kill();
-            }
         }
 
         private int ApplyDefenseModifier(int incomingDamage)
         {
-            return (int)Math.Round((100 - Defense) * 0.01 * incomingDamage);
+            return (int) Math.Round((100 - Defense) * 0.01 * incomingDamage);
         }
 
         //Todo: make an attack class and use polymorphism to select the right attack
-        public void RegularAttack(Player targetEnemy)
+        public void RegularAttack(Entity targetEnemy)
         {
             Console.WriteLine($"{Name} attacked {targetEnemy.Name}.");
-            targetEnemy.TakeDamage(Randomize(Attack));
+            var adjustedAttack = DetermineCrit(Attack);
+
+            if (adjustedAttack == 0)
+                Console.WriteLine($"{Name}'s attack missed!");
+
+            targetEnemy.TakeDamage(adjustedAttack);
         }
 
-        protected int Randomize(int value)
+        protected int DetermineCrit(int value)
         {
-            var randomizer = new Random();
-            return value + randomizer.Next(0, 6) - 3;
+            return Randomizer.getModifier(value);
         }
 
         protected virtual void Kill()
