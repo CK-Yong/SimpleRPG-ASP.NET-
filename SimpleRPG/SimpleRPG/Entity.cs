@@ -70,7 +70,7 @@ namespace SimpleRPG
 
         protected int DetermineCrit(int value)
         {
-            return Randomizer.getModifier(value);
+            return Randomizer.getAttackModifier(value);
         }
 
         protected virtual void Kill()
