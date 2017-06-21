@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleRPGTest", "SimpleRPGTest\SimpleRPGTest.csproj", "{70A872C7-8404-4F6F-8772-92EA727874D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleRPGMVC", "SimpleRPGMVC\SimpleRPGMVC.csproj", "{A0B3B097-A4F3-4E42-B4B3-A036A3187C82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F0DCFE23-0E20-47E4-A0ED-B6CEC320679C} = {F0DCFE23-0E20-47E4-A0ED-B6CEC320679C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
