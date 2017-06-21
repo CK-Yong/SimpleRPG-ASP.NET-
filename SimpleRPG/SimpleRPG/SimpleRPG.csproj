@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SimpleRPG.Game</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Battle.cs" />
     <Compile Include="Exceptions\NegativeAttackAttemptException.cs" />
+    <Compile Include="MonsterFactory\EnemyFactory.cs" />
     <Compile Include="MonsterFactory\Rodent.cs" />
     <Compile Include="MonsterFactory\Enemy.cs" />
     <Compile Include="Game.cs" />

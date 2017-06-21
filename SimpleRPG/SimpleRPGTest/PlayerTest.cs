@@ -8,12 +8,12 @@ namespace SimpleRPGTest
     public class PlayerTest
     {
         private Player player;
+        private EnemyFactory enemyFactory = new EnemyFactory();
 
         [TestInitialize]
         public void InitializeVariables()
         {
-            player = new Player();
-            player.Name = "CK Yong";
+            player = new Player("CK Yong");
         }
 
         [TestMethod]
@@ -31,17 +31,17 @@ namespace SimpleRPGTest
         [TestMethod]
         public void PlayerShouldBeAbleToAttackMonster()
         {
-            Enemy oneEyedRat = new Rodent("One Eyed Rat");
-            player.RegularAttack(oneEyedRat);
-            Assert.AreEqual(20, oneEyedRat.Life, 3);
+            Enemy normalGuineaPig = enemyFactory.MakeEnemy("Rodent");
+            player.RegularAttack(normalGuineaPig);
+            Assert.AreEqual(20, normalGuineaPig.Life, 3);
         }
 
         [TestMethod]
         public void PlayerShouldBeAbleToDie()
         {
-            Enemy oneEyedRat = new Rodent("One Eyed Rat");
+            Enemy normalGuineaPig = enemyFactory.MakeEnemy("Rodent");
             for (var i = 0; i < 100; i++)
-                oneEyedRat.RegularAttack(player);
+                normalGuineaPig.RegularAttack(player);
             Assert.IsTrue(player.IsDead);
         }
     }

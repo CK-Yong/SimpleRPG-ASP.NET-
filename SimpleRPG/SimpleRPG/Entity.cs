@@ -5,7 +5,7 @@ using SimpleRPG.Tools;
 namespace SimpleRPG
 {
     [SuppressMessage("ReSharper", "ArrangeAccessorOwnerBody")]
-    public class Entity
+    public abstract class Entity
     {
         private string _name;
 
@@ -31,7 +31,9 @@ namespace SimpleRPG
         private void TakeDamage(int incomingDamage)
         {
             if (incomingDamage <= 0)
+            {
                 incomingDamage = 0;
+            }
             var resultingDamage = ApplyDefenseModifier(incomingDamage);
             Life -= resultingDamage;
             Console.WriteLine($"{Name} took {resultingDamage} damage.");

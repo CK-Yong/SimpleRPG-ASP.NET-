@@ -16,5 +16,10 @@ namespace SimpleRPG.MonsterFactory
         {
             Console.WriteLine($"{Name} died.");
         }
+
+        public void PerformAttackOn(Entity target)
+        {
+            RegularAttack(target);
+        }
     }
 }
