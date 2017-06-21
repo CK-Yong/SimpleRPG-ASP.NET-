@@ -7,15 +7,6 @@
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="..\SimpleRPG\Battle.cs" Link="Models\Battle.cs" />
-    <Compile Include="..\SimpleRPG\Entity.cs" Link="Models\Entity.cs" />
-    <Compile Include="..\SimpleRPG\MonsterFactory\Enemy.cs" Link="Models\Enemy.cs" />
-    <Compile Include="..\SimpleRPG\MonsterFactory\EnemyFactory.cs" Link="Models\EnemyFactory.cs" />
-    <Compile Include="..\SimpleRPG\MonsterFactory\Rodent.cs" Link="Models\Rodent.cs" />
-    <Compile Include="..\SimpleRPG\Player.cs" Link="Models\Player.cs" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
@@ -33,6 +24,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleRPG\SimpleRPG.csproj" />
   </ItemGroup>
 
 </Project>
