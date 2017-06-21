@@ -9,8 +9,8 @@ namespace SimpleRPG
 {
     public class Battle
     {
-        public Player Player { get; private set; }
-        public Enemy Monster { get; private set; }
+        public Player Player { get; }
+        public Enemy Monster { get; }
         public bool IsBattleOver { get; private set; }
 
         public Battle(Player player, Enemy monster)
