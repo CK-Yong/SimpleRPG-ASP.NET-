@@ -23,10 +23,15 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SimpleRPG\SimpleRPG.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <None Include="..\SimpleRPG\bin\Debug\SimpleRPG.dll" Link="Models\SimpleRPG.dll" />
+    <None Include="..\SimpleRPG\bin\Debug\SimpleRPG.dll.config" Link="Models\SimpleRPG.dll.config" />
+    <None Include="..\SimpleRPG\bin\Debug\SimpleRPG.pdb" Link="Models\SimpleRPG.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleRPG\SimpleRPG.csproj" />
   </ItemGroup>
 
 </Project>
