@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SimpleRPG;
-using SimpleRPG.MonsterFactory;
 
 namespace SimpleRPGTest
 {
+    using SimpleRPG;
+    using SimpleRPG.Exceptions;
+    using SimpleRPG.MonsterFactory;
+
     [TestClass]
     public class EnemyTest
     {

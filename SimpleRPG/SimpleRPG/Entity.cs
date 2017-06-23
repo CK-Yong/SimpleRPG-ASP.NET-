@@ -1,9 +1,10 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using SimpleRPG.Tools;
-
-namespace SimpleRPG
+﻿namespace SimpleRPG
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using Exceptions;
+    using Tools;
+
     [SuppressMessage("ReSharper", "ArrangeAccessorOwnerBody")]
     public abstract class Entity
     {
@@ -44,7 +45,7 @@ namespace SimpleRPG
 
         private int ApplyDefenseModifier(int incomingDamage)
         {
-            return (int) Math.Round((100 - Defense) * 0.01 * incomingDamage);
+            return (int)Math.Round((100 - Defense) * 0.01 * incomingDamage);
         }
 
         //Todo: make an attack class and use polymorphism to select the right attack

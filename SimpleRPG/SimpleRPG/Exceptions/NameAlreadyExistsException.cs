@@ -1,9 +1,7 @@
-﻿using System;
-using System.Runtime.Serialization;
-
-namespace SimpleRPG
+﻿namespace SimpleRPG.Exceptions
 {
-    [Serializable]
+    using System;
+
     public class NameAlreadyExistsException : Exception
     {
         public NameAlreadyExistsException()
@@ -15,10 +13,6 @@ namespace SimpleRPG
         }
 
         public NameAlreadyExistsException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected NameAlreadyExistsException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

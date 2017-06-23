@@ -48,7 +48,6 @@ namespace SimpleRPGMVC
             }
 
             app.UseStaticFiles();
-            app.UseSession();
 
             app.UseMvc(routes =>
             {

@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace SimpleRPG.MonsterFactory
+﻿namespace SimpleRPG.MonsterFactory
 {
+    using System;
+    using SimpleRPG;
+
     public abstract class Enemy : Entity
     {
         public override int Attack { get; protected set; }

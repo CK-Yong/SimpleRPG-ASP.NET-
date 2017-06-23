@@ -1,8 +1,8 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Session;
 using SimpleRPG;
 using SimpleRPG.MonsterFactory;
-using Microsoft.AspNetCore.Session;
 
 namespace SimpleRPGMVC.Controllers
 {
@@ -14,12 +14,8 @@ namespace SimpleRPGMVC.Controllers
 
         public IActionResult Index()
         {
-            var session = HttpContext.Session;
             //todo make json representation of objects.
-            if (session.TryGetValue("Player",))
-            {
-            }
-
+            player = new Player("CK Yong");
             var enemy = enemyFactory.MakeEnemy("Rodent");
             battle = new Battle(player, enemy);
 

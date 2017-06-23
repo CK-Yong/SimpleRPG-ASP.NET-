@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace SimpleRPG.Tools
+﻿namespace SimpleRPG.Tools
 {
+    using System;
+
     internal abstract class Randomizer
     {
         private static readonly Random randomizer = new Random();

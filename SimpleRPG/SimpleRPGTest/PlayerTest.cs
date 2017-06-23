@@ -4,6 +4,8 @@ using SimpleRPG.MonsterFactory;
 
 namespace SimpleRPGTest
 {
+    using SimpleRPG.Exceptions;
+
     [TestClass]
     public class PlayerTest
     {

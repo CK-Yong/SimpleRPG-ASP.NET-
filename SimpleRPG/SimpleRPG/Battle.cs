@@ -1,7 +1,7 @@
-﻿using SimpleRPG.MonsterFactory;
-
-namespace SimpleRPG
+﻿namespace SimpleRPG
 {
+    using MonsterFactory;
+
     public class Battle
     {
         public Player Player { get; }

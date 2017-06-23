@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace SimpleRPG
+﻿namespace SimpleRPG
 {
+    using System;
+
     internal class Game
     {
         private static void Main(string[] args)
