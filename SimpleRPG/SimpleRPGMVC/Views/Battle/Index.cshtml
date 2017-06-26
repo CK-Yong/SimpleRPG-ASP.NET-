@@ -1,8 +1,17 @@
+@model Battle
+
+@using System.Runtime.InteropServices.ComTypes
+@using SimpleRPG
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Battle</h2>
 
+Battle over: @ViewData.Model.IsBattleOver
 
+<h3>@ViewData.Model.Player.Name</h3><br />
+HP: @ViewData.Model.Player.Life
 
+<h3>Monster</h3><br />
+HP: @ViewData.Model.Monster.Life
