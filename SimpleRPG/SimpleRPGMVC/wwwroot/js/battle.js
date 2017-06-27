@@ -4,7 +4,7 @@ var battle = (function (player, enemy) {
         Enemy: enemy
     };
     var checkIfBattleIsOver = function () {
-        if (state.Player.getLife() <= 0 || state.Enemy.getLife() <= 0) {
+        if (state.Player.life <= 0 || state.Enemy.getLife() <= 0) {
             return true;
         }
         return false;

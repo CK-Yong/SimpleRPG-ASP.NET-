@@ -1,11 +1,11 @@
-﻿var battle: any = (function (player:any, enemy:any) {
+﻿var battle: any = (function (player:Player, enemy:any) {
     var state = {
         Player: player,
         Enemy: enemy
     };
 
     var checkIfBattleIsOver = function (): boolean {
-        if (state.Player.getLife() <= 0 || state.Enemy.getLife() <= 0) {
+        if (state.Player.life <= 0 || state.Enemy.getLife() <= 0) {
             return true;
         }
         return false;

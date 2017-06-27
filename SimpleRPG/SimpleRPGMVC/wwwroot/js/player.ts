@@ -3,7 +3,7 @@
         private Name: string = "Unknown Player",
         private Attack: number = 5,
         private Defense: number = 5,
-        private Life: number = 25,
+        private Life: number = 100,
         private Mana: number = 100,
         private Stamina: number = 100,
         private Experience: number = 0) {

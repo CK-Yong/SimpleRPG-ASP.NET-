@@ -3,7 +3,7 @@ var Player = (function () {
         if (Name === void 0) { Name = "Unknown Player"; }
         if (Attack === void 0) { Attack = 5; }
         if (Defense === void 0) { Defense = 5; }
-        if (Life === void 0) { Life = 25; }
+        if (Life === void 0) { Life = 100; }
         if (Mana === void 0) { Mana = 100; }
         if (Stamina === void 0) { Stamina = 100; }
         if (Experience === void 0) { Experience = 0; }
