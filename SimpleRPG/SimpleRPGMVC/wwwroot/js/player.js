@@ -1,45 +1,44 @@
-var Player = (function (name, attack, defense, life, mana, stamina, experience) {
-    if (name === void 0) { name = "Unknown Player"; }
-    if (attack === void 0) { attack = 5; }
-    if (defense === void 0) { defense = 5; }
-    if (life === void 0) { life = 25; }
-    if (mana === void 0) { mana = 100; }
-    if (stamina === void 0) { stamina = 100; }
-    if (experience === void 0) { experience = 0; }
-    var state = {
-        Name: name,
-        Attack: attack,
-        Defense: defense,
-        Life: life,
-        Mana: mana,
-        Stamina: stamina,
-        Experience: experience
+var Player = (function () {
+    function Player(Name, Attack, Defense, Life, Mana, Stamina, Experience) {
+        if (Name === void 0) { Name = "Unknown Player"; }
+        if (Attack === void 0) { Attack = 5; }
+        if (Defense === void 0) { Defense = 5; }
+        if (Life === void 0) { Life = 25; }
+        if (Mana === void 0) { Mana = 100; }
+        if (Stamina === void 0) { Stamina = 100; }
+        if (Experience === void 0) { Experience = 0; }
+        this.Name = Name;
+        this.Attack = Attack;
+        this.Defense = Defense;
+        this.Life = Life;
+        this.Mana = Mana;
+        this.Stamina = Stamina;
+        this.Experience = Experience;
+    }
+    Player.prototype.setName = function (name) {
+        this.Name = name;
     };
-    return {
-        setName: function (name) {
-            state.Name = name;
-        },
-        getName: function () {
-            return state.Name;
-        },
-        getAttack: function () {
-            return state.Attack;
-        },
-        getDefense: function () {
-            return state.Defense;
-        },
-        getLife: function () {
-            return state.Life;
-        },
-        getMana: function () {
-            return state.Mana;
-        },
-        getStamina: function () {
-            return state.Stamina;
-        },
-        getExperience: function () {
-            return state.Experience;
-        }
+    Player.prototype.getName = function () {
+        return this.Name;
     };
-});
+    Player.prototype.getAttack = function () {
+        return this.Attack;
+    };
+    Player.prototype.getDefense = function () {
+        return this.Defense;
+    };
+    Player.prototype.getLife = function () {
+        return this.Life;
+    };
+    Player.prototype.getMana = function () {
+        return this.Mana;
+    };
+    Player.prototype.getStamina = function () {
+        return this.Stamina;
+    };
+    Player.prototype.getExperience = function () {
+        return this.Experience;
+    };
+    return Player;
+}());
 //# sourceMappingURL=player.js.map

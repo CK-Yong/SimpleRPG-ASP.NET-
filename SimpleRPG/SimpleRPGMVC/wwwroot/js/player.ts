@@ -1,43 +1,43 @@
-﻿var Player: any = (function(name = "Unknown Player",
-    attack = 5,
-    defense = 5,
-    life = 25,
-    mana = 100,
-    stamina = 100,
-    experience = 0) {
-    var state = {
-        Name: name,
-        Attack: attack,
-        Defense: defense,
-        Life: life,
-        Mana: mana,
-        Stamina: stamina,
-        Experience: experience
-    };
-    return {
-        setName(name:string): void {
-            state.Name = name;
-        },
-        getName(): string {
-            return state.Name;
-        },
-        getAttack(): number {
-            return state.Attack;
-        },
-        getDefense(): number {
-            return state.Defense;
-        },
-        getLife(): number {
-            return state.Life;
-        },
-        getMana(): number {
-            return state.Mana;
-        },
-        getStamina(): number {
-            return state.Stamina;
-        },
-        getExperience(): number {
-            return state.Experience;
-        }
-    };
-})
+﻿class Player {
+    constructor(
+        private Name: string = "Unknown Player",
+        private Attack: number = 5,
+        private Defense: number = 5,
+        private Life: number = 25,
+        private Mana: number = 100,
+        private Stamina: number = 100,
+        private Experience: number = 0) {
+    }
+
+    setName(name): void {
+        this.Name = name;
+    }
+
+    getName(): string {
+        return this.Name;
+    }
+
+    getAttack(): number {
+        return this.Attack;
+    }
+
+    getDefense(): number {
+        return this.Defense;
+    }
+
+    getLife(): number {
+        return this.Life;
+    }
+
+    getMana(): number {
+        return this.Mana;
+    }
+
+    getStamina(): number {
+        return this.Stamina;
+    }
+
+    getExperience(): number {
+        return this.Experience;
+    }
+}

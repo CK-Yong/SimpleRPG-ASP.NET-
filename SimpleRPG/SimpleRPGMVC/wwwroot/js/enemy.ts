@@ -1,5 +1,10 @@
 ﻿var Enemy: any =
-(function(name = "Standard Guinea Pig", attack = 5, defense = 5, life = 25, mana = 100, stamina = 100) {
+(function(name: string = "Standard Guinea Pig",
+    attack: number = 5,
+    defense: number = 5,
+    life: number = 25,
+    mana: number = 100,
+    stamina: number = 100) {
     var state = {
         Name: name,
         Attack: attack,

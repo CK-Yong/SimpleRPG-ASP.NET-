@@ -1,5 +1,5 @@
 ﻿function initializeBattle():void {
-    var currentPlayer = Player();
+    var currentPlayer = new Player();
     var currentEnemy = Enemy();
     var currentBattle = battle(currentPlayer, currentEnemy);
 

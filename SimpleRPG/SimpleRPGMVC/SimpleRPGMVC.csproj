@@ -29,6 +29,7 @@
     <Content Include="wwwroot\js\enemy.js" />
     <Content Include="wwwroot\js\enemy.js.map" />
     <Content Include="wwwroot\js\enemy.ts" />
+    <Content Include="wwwroot\js\entity.ts" />
     <Content Include="wwwroot\js\game.js" />
     <Content Include="wwwroot\js\game.js.map" />
     <Content Include="wwwroot\js\game.ts" />
