@@ -1,6 +1,6 @@
 ﻿class Player extends Entity {
     private Experience = 0;
-    //Todo: fix instantiation
+
     constructor() {
         super();
         this.Name = "Unknown Player";
