@@ -1,4 +1,5 @@
-﻿var Enemy = (function(name = "Standard Guinea Pig", attack = 5, defense = 5, life = 25, mana = 100, stamina = 100) {
+﻿var Enemy: any =
+(function(name = "Standard Guinea Pig", attack = 5, defense = 5, life = 25, mana = 100, stamina = 100) {
     var state = {
         Name: name,
         Attack: attack,
@@ -8,25 +9,25 @@
         Stamina: stamina
     };
     return {
-        setName(name) {
+        setName(name): void {
             state.Name = name;
         },
-        getName() {
+        getName(): string {
             return state.Name;
         },
-        getAttack() {
+        getAttack(): number {
             return state.Attack;
         },
-        getDefense() {
+        getDefense(): number {
             return state.Defense;
         },
-        getLife() {
+        getLife(): number {
             return state.Life;
         },
-        getMana() {
+        getMana(): number {
             return state.Mana;
         },
-        getStamina() {
+        getStamina(): number {
             return state.Stamina;
         }
     };

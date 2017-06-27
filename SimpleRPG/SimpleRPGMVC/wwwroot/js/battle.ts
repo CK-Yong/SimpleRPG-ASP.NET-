@@ -1,4 +1,4 @@
-﻿var battle = (function (player:any, enemy:any) {
+﻿var battle: any = (function (player:any, enemy:any) {
     var state = {
         Player: player,
         Enemy: enemy
@@ -12,13 +12,13 @@
     };
 
     return {
-        getPlayer: function () {
+        getPlayer: function ():any {
             return state.Player;
         },
-        getEnemy: function () {
+        getEnemy: function (): any  {
             return state.Enemy;
         },
-        isOver: function () {
+        isOver: function ():boolean {
             return checkIfBattleIsOver();
         }
     };

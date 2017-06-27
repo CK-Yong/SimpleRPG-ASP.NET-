@@ -1,12 +1,19 @@
-var Player = (function () {
+var Player = (function (name, attack, defense, life, mana, stamina, experience) {
+    if (name === void 0) { name = "Unknown Player"; }
+    if (attack === void 0) { attack = 5; }
+    if (defense === void 0) { defense = 5; }
+    if (life === void 0) { life = 25; }
+    if (mana === void 0) { mana = 100; }
+    if (stamina === void 0) { stamina = 100; }
+    if (experience === void 0) { experience = 0; }
     var state = {
-        Name: "Unknown Player",
-        Attack: 5,
-        Defense: 5,
-        Life: 100,
-        Mana: 100,
-        Stamina: 100,
-        Experience: 0
+        Name: name,
+        Attack: attack,
+        Defense: defense,
+        Life: life,
+        Mana: mana,
+        Stamina: stamina,
+        Experience: experience
     };
     return {
         setName: function (name) {

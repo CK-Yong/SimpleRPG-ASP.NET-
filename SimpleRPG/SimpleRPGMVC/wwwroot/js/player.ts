@@ -1,36 +1,42 @@
-﻿var Player = (function () {
+﻿var Player: any = (function(name = "Unknown Player",
+    attack = 5,
+    defense = 5,
+    life = 25,
+    mana = 100,
+    stamina = 100,
+    experience = 0) {
     var state = {
-        Name: "Unknown Player",
-        Attack: 5,
-        Defense: 5,
-        Life: 100,
-        Mana: 100,
-        Stamina: 100,
-        Experience: 0
+        Name: name,
+        Attack: attack,
+        Defense: defense,
+        Life: life,
+        Mana: mana,
+        Stamina: stamina,
+        Experience: experience
     };
     return {
-        setName(name) {
+        setName(name:string): void {
             state.Name = name;
         },
-        getName() {
+        getName(): string {
             return state.Name;
         },
-        getAttack() {
+        getAttack(): number {
             return state.Attack;
         },
-        getDefense() {
+        getDefense(): number {
             return state.Defense;
         },
-        getLife() {
+        getLife(): number {
             return state.Life;
         },
-        getMana() {
+        getMana(): number {
             return state.Mana;
         },
-        getStamina() {
+        getStamina(): number {
             return state.Stamina;
         },
-        getExperience() {
+        getExperience(): number {
             return state.Experience;
         }
     };
