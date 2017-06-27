@@ -9,35 +9,35 @@
         private Experience: number = 0) {
     }
 
-    setName(name): void {
+    set name(name:string){
         this.Name = name;
     }
 
-    getName(): string {
+    get name(): string {
         return this.Name;
     }
 
-    getAttack(): number {
+    get attack(): number {
         return this.Attack;
     }
 
-    getDefense(): number {
+    get defense(): number {
         return this.Defense;
     }
 
-    getLife(): number {
+    get life(): number {
         return this.Life;
     }
 
-    getMana(): number {
+    get mana(): number {
         return this.Mana;
     }
 
-    getStamina(): number {
+    get stamina(): number {
         return this.Stamina;
     }
 
-    getExperience(): number {
+    get experience(): number {
         return this.Experience;
     }
 }

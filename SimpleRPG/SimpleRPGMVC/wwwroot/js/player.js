@@ -15,30 +15,58 @@ var Player = (function () {
         this.Stamina = Stamina;
         this.Experience = Experience;
     }
-    Player.prototype.setName = function (name) {
-        this.Name = name;
-    };
-    Player.prototype.getName = function () {
-        return this.Name;
-    };
-    Player.prototype.getAttack = function () {
-        return this.Attack;
-    };
-    Player.prototype.getDefense = function () {
-        return this.Defense;
-    };
-    Player.prototype.getLife = function () {
-        return this.Life;
-    };
-    Player.prototype.getMana = function () {
-        return this.Mana;
-    };
-    Player.prototype.getStamina = function () {
-        return this.Stamina;
-    };
-    Player.prototype.getExperience = function () {
-        return this.Experience;
-    };
+    Object.defineProperty(Player.prototype, "name", {
+        get: function () {
+            return this.Name;
+        },
+        set: function (name) {
+            this.Name = name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "attack", {
+        get: function () {
+            return this.Attack;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "defense", {
+        get: function () {
+            return this.Defense;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "life", {
+        get: function () {
+            return this.Life;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "mana", {
+        get: function () {
+            return this.Mana;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "stamina", {
+        get: function () {
+            return this.Stamina;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Player.prototype, "experience", {
+        get: function () {
+            return this.Experience;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Player;
 }());
 //# sourceMappingURL=player.js.map
