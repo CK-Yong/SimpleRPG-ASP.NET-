@@ -1,7 +1,7 @@
 ﻿function initializeBattle():void {
-    var currentPlayer = new Player();
-    var currentEnemy = Enemy();
-    var currentBattle = battle(currentPlayer, currentEnemy);
+    let currentPlayer = new Player();
+    let currentEnemy = Enemy();
+    let currentBattle = battle(currentPlayer, currentEnemy);
 
     document.getElementById("battle_isOver").innerHTML = currentBattle.isOver().toString();
     document.getElementById("player_name").innerHTML = currentBattle.getPlayer().name;
