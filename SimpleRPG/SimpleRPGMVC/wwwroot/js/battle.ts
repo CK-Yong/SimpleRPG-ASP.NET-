@@ -1,14 +1,16 @@
-var battle = (function (player, enemy) {
+﻿var battle = (function (player:any, enemy:any) {
     var state = {
         Player: player,
         Enemy: enemy
     };
-    var checkIfBattleIsOver = function () {
+
+    var checkIfBattleIsOver = function (): boolean {
         if (state.Player.getLife() <= 0 || state.Enemy.getLife() <= 0) {
             return true;
         }
         return false;
     };
+
     return {
         getPlayer: function () {
             return state.Player;
@@ -20,5 +22,4 @@ var battle = (function (player, enemy) {
             return checkIfBattleIsOver();
         }
     };
-});
-//# sourceMappingURL=battle.js.map
+})

@@ -24,9 +24,21 @@
 
   <ItemGroup>
     <Content Include="wwwroot\js\battle.js" />
+    <Content Include="wwwroot\js\battle.js.map" />
+    <Content Include="wwwroot\js\battle.ts" />
     <Content Include="wwwroot\js\enemy.js" />
+    <Content Include="wwwroot\js\enemy.js.map" />
+    <Content Include="wwwroot\js\enemy.ts" />
     <Content Include="wwwroot\js\game.js" />
+    <Content Include="wwwroot\js\game.js.map" />
+    <Content Include="wwwroot\js\game.ts" />
     <Content Include="wwwroot\js\player.js" />
+    <Content Include="wwwroot\js\player.js.map" />
+    <Content Include="wwwroot\js\player.ts" />
+    <Content Include="wwwroot\js\site.js" />
+    <Content Include="wwwroot\js\site.js.map" />
+    <Content Include="wwwroot\js\site.ts" />
+    <Content Include="wwwroot\js\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.1" />
@@ -43,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\js\battle.js" />
+    <None Include="wwwroot\js\battle.js.map" />
+    <None Include="wwwroot\js\battle.ts" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleRPG\SimpleRPG.csproj" />

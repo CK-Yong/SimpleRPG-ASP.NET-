@@ -1,4 +1,4 @@
-var Player = (function () {
+﻿var Player = (function () {
     var state = {
         Name: "Unknown Player",
         Attack: 5,
@@ -9,30 +9,29 @@ var Player = (function () {
         Experience: 0
     };
     return {
-        setName: function (name) {
+        setName(name) {
             state.Name = name;
         },
-        getName: function () {
+        getName() {
             return state.Name;
         },
-        getAttack: function () {
+        getAttack() {
             return state.Attack;
         },
-        getDefense: function () {
+        getDefense() {
             return state.Defense;
         },
-        getLife: function () {
+        getLife() {
             return state.Life;
         },
-        getMana: function () {
+        getMana() {
             return state.Mana;
         },
-        getStamina: function () {
+        getStamina() {
             return state.Stamina;
         },
-        getExperience: function () {
+        getExperience() {
             return state.Experience;
         }
     };
-});
-//# sourceMappingURL=player.js.map
+})
