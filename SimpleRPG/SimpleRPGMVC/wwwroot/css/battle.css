@@ -1,0 +1,33 @@
+﻿#main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 600px;
+    height: 100%;
+    flex-direction: column;
+}
+
+#flex_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#battle_stats {
+    margin: 0 0 30px;
+}
+
+#battle_contestants {
+    display: flex;
+}
+
+.stats {
+    margin: 0;
+    width: 350px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}

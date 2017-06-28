@@ -1,25 +1,30 @@
-﻿var battle: any = (function (player:Player, enemy:any) {
-    var state = {
-        Player: player,
-        Enemy: enemy
-    };
+﻿class Battle {
+    private Player: Player;
+    private Enemy: Enemy;
 
-    var checkIfBattleIsOver = function (): boolean {
-        if (state.Player.life <= 0 || state.Enemy.getLife() <= 0) {
-            return true;
-        }
-        return false;
-    };
+    constructor(_player: Player, _enemy: Enemy) {
+        this.Player = _player;
+        this.Enemy = _enemy;
+    }
 
-    return {
-        getPlayer: function ():any {
-            return state.Player;
-        },
-        getEnemy: function (): any  {
-            return state.Enemy;
-        },
-        isOver: function ():boolean {
-            return checkIfBattleIsOver();
-        }
-    };
-})
+    get player(): Player {
+        return this.Player;
+    }
+
+    get enemy(): Enemy {
+        return this.Enemy;
+    }
+
+    isOver(): boolean {
+        return this.Player.life <= 0 || this.Enemy.life <= 0;
+    }
+
+    attack(): any {
+        return $.ajax({
+            type: 'POST',
+            url: '/Battle/Attack/',
+            dataType: 'json',
+            data: JSON.stringify(this)
+        });
+    }
+}

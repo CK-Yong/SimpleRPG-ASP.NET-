@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\battle.css" />
     <Content Include="wwwroot\js\battle.js" />
     <Content Include="wwwroot\js\battle.js.map" />
     <Content Include="wwwroot\js\battle.ts" />

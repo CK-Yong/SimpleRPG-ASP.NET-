@@ -1,31 +1,54 @@
 @model Battle
 
-@using System.Runtime.InteropServices.ComTypes
 @using SimpleRPG
+
 @{
     ViewData["Title"] = "Index";
 }
+@section battle {
+    <link href="~/css/battle.css" rel="stylesheet" type="text/css" />
+}
+<div id="main_container">
+    <div id="flex_container">
+        <div id="battle_stats">
+            <h3>Battle commencing!</h3>
+            Battle over: <span id="battle_isOver"></span>
+        </div>
+        <div id="battle_contestants">
+            <div class="stats">
+                <h4 id="player_name"></h4>
+                <ul>
+                    <li>HP: <span id="player_life"></span></li>
+                    <li>Mana: <span id="player_mana"></span></li>
+                    <li>Stamina: <span id="player_stamina"></span></li>
+                    <li>Experience: <span id="player_experience"></span></li>
+                </ul>
+            </div>
+            <div class="stats">
+                <h4 id="enemy_name">Monster</h4>
+                <ul>
+                    <li>HP: <span id="enemy_life"></span></li>
+                    <li>Mana: <span id="enemy_mana"></span></li>
+                    <li>Stamina: <span id="enemy_stamina"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="control_panel">
+            <input id="attack" type="button" onclick="currentBattle.attack();" value="Attack!" />
+        </div>
+    </div>
+</div>
 
-<h2>Battle</h2>
-
-Battle over: <span id="battle_isOver"></span>
-
-<h3 id="player_name"></h3><br />
-HP: <span id="player_life"></span>
-
-<h3>Monster</h3><br />
-HP: <span id="enemy_life"></span>
-
-<script type="text/javascript" src="@Url.Content("lib/jquery/dist/jquery.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/jquery/dist/jquery.min.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/entity.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/player.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/enemy.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/battle.js")"></script>
-<script type="text/javascript" src="@Url.Content("js/game.js")"></script>
-
-<script>
-    $(document).ready(function() {
-        initializeBattle();
-    })
-</script>
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("lib/jquery-3.2.1.js")"></script>
+    <script type="text/javascript" src="@Url.Content("js/entity.js")"></script>
+    <script type="text/javascript" src="@Url.Content("js/player.js")"></script>
+    <script type="text/javascript" src="@Url.Content("js/enemy.js")"></script>
+    <script type="text/javascript" src="@Url.Content("js/battle.js")"></script>
+    <script type="text/javascript" src="@Url.Content("js/game.js")"></script>
+    <script>
+        $(document).ready(function () {
+            updateBattle();
+        });
+    </script>
+}

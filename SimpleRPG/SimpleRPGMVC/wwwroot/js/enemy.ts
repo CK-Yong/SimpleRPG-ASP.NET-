@@ -1,39 +1,16 @@
-﻿var Enemy: any =
-(function(name: string = "Standard Guinea Pig",
-    attack: number = 5,
-    defense: number = 5,
-    life: number = 25,
-    mana: number = 100,
-    stamina: number = 100) {
-    var state = {
-        Name: name,
-        Attack: attack,
-        Defense: defense,
-        Life: life,
-        Mana: mana,
-        Stamina: stamina
-    };
-    return {
-        setName(name): void {
-            state.Name = name;
-        },
-        getName(): string {
-            return state.Name;
-        },
-        getAttack(): number {
-            return state.Attack;
-        },
-        getDefense(): number {
-            return state.Defense;
-        },
-        getLife(): number {
-            return state.Life;
-        },
-        getMana(): number {
-            return state.Mana;
-        },
-        getStamina(): number {
-            return state.Stamina;
-        }
-    };
-})
+﻿class Enemy extends Entity {
+    constructor(name = "Standard Guinea Pig",
+        attack = 5,
+        defense = 5,
+        life = 25,
+        mana = 100,
+        stamina = 100) {
+        super();
+        this.Name = name;
+        this.Attack = attack;
+        this.Defense = defense;
+        this.Life = life;
+        this.Mana = mana;
+        this.Stamina = stamina;
+    }
+}

@@ -13,9 +13,9 @@ namespace SimpleRPGMVC.Controllers
             return View();
         }
 
-        public IActionResult Attack()
+        [HttpPost]
+        public IActionResult Attack(string json)
         {
-
             return Index();
         }
     }
