@@ -34,13 +34,13 @@
             </div>
         </div>
         <div id="control_panel">
-            <input id="attack" type="button" onclick="currentBattle.attack();" value="Attack!" />
+            <input id="attack" type="button" value="Attack!" />
         </div>
     </div>
 </div>
 
 @section Scripts{
-    <script type="text/javascript" src="@Url.Content("lib/jquery-3.2.1.js")"></script>
+    <script type="text/javascript" src="@Url.Content("lib/dist/jquery.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("js/entity.js")"></script>
     <script type="text/javascript" src="@Url.Content("js/player.js")"></script>
     <script type="text/javascript" src="@Url.Content("js/enemy.js")"></script>
@@ -49,6 +49,7 @@
     <script>
         $(document).ready(function () {
             updateBattle();
+            setListeners();
         });
     </script>
 }

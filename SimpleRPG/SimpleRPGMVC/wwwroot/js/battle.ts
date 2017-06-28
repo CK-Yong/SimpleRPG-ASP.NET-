@@ -1,4 +1,5 @@
-﻿class Battle {
+﻿/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
+class Battle {
     private Player: Player;
     private Enemy: Enemy;
 

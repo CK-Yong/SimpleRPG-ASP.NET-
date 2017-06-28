@@ -15,4 +15,7 @@ function updateBattle() {
     document.getElementById("enemy_stamina").innerHTML = currentBattle.enemy.life.toString();
 }
 ;
+function setListeners() {
+    document.getElementById("attack").onclick = currentBattle.attack;
+}
 //# sourceMappingURL=game.js.map

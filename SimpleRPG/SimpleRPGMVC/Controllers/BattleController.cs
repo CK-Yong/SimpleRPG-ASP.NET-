@@ -16,7 +16,7 @@ namespace SimpleRPGMVC.Controllers
         [HttpPost]
         public IActionResult Attack(string json)
         {
-            return Index();
+            return RedirectToAction("Index");
         }
     }
 }

@@ -15,3 +15,7 @@ function updateBattle(): void {
     document.getElementById("enemy_mana").innerHTML = currentBattle.enemy.life.toString();
     document.getElementById("enemy_stamina").innerHTML = currentBattle.enemy.life.toString();
 };
+
+function setListeners(): void {
+    document.getElementById("attack").onclick = currentBattle.attack;
+}
