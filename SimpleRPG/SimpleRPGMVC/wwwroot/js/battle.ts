@@ -25,7 +25,7 @@ class Battle {
             type: 'POST',
             url: '/Battle/Attack/',
             dataType: 'json',
-            data: JSON.stringify(this)
-        });
+            data: JSON.stringify({ "Player": this.player, "Enemy": this.enemy })
+    });
     }
 }
