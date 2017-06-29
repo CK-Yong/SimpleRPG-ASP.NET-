@@ -16,6 +16,6 @@ function updateBattle() {
 }
 ;
 function setListeners() {
-    document.getElementById("attack").onclick = currentBattle.attack;
+    document.getElementById("attack").onclick = currentBattle.attack();
 }
 //# sourceMappingURL=game.js.map

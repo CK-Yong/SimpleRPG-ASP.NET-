@@ -17,5 +17,5 @@ function updateBattle(): void {
 };
 
 function setListeners(): void {
-    document.getElementById("attack").onclick = currentBattle.attack;
+    document.getElementById("attack").onclick = currentBattle.attack();
 }
