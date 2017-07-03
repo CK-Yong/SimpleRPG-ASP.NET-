@@ -27,7 +27,7 @@
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             data: data,
-            success: function(data) {
+            success: function (data) {
                 alert(data);
             }
         });

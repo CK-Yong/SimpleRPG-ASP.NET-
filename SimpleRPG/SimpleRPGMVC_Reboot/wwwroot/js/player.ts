@@ -6,7 +6,8 @@
         defense = 5,
         life = 100,
         mana = 100,
-        stamina = 100) {
+        stamina = 100,
+        experience = 0) {
         super();
         this.Name = name;
         this.Attack = attack;
@@ -14,6 +15,7 @@
         this.Life = life;
         this.Mana = mana;
         this.Stamina = stamina;
+        this.Experience = experience;
     }
 
     get experience(): number {

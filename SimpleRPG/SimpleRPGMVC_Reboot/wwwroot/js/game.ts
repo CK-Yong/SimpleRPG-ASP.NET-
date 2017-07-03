@@ -1,6 +1,36 @@
 ﻿let currentBattle: Battle;
-let currentPlayer: Player = new Player();
-let currentEnemy: Enemy = new Enemy();
+let currentPlayer: Player;
+let currentEnemy: Enemy;
+
+function initializeBattle(): any {
+    return $.ajax({
+        type: 'get',
+        url: '/Battle/Initialize',
+        dataType: 'json',
+        success: function (data) {
+            var playerData = data.player;
+            var enemyData = data.enemy;
+
+            currentPlayer = new Player(playerData.name,
+                playerData.attack,
+                playerData.defense,
+                playerData.life,
+                playerData.mana,
+                playerData.stamina,
+                playerData.experience);
+
+            currentEnemy = new Enemy(enemyData.name,
+                enemyData.attack,
+                enemyData.defense,
+                enemyData.life,
+                enemyData.mana,
+                enemyData.stamina);
+
+            updateBattle();
+            setListeners();
+        }
+    });
+}
 
 function updateBattle(): void {
     currentBattle = new Battle(currentPlayer, currentEnemy);
@@ -12,8 +42,8 @@ function updateBattle(): void {
     document.getElementById("player_experience").innerHTML = currentBattle.player.experience.toString();
     document.getElementById("enemy_name").innerHTML = currentBattle.enemy.name.toString();
     document.getElementById("enemy_life").innerHTML = currentBattle.enemy.life.toString();
-    document.getElementById("enemy_mana").innerHTML = currentBattle.enemy.life.toString();
-    document.getElementById("enemy_stamina").innerHTML = currentBattle.enemy.life.toString();
+    document.getElementById("enemy_mana").innerHTML = currentBattle.enemy.mana.toString();
+    document.getElementById("enemy_stamina").innerHTML = currentBattle.enemy.stamina.toString();
 };
 
 function setListeners(): void {
