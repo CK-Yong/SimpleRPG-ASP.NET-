@@ -5,6 +5,7 @@ using SimpleRPG.MonsterFactory;
 namespace SimpleRPGMVC.Controllers
 {
     using Microsoft.AspNetCore.Http;
+    using Model;
     using Newtonsoft.Json;
 
     public class BattleController : Controller
@@ -27,9 +28,9 @@ namespace SimpleRPGMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Attack()
+        public IActionResult Attack(string json)
         {
-            // var incomingString = json;
+            PlayerEnemyData data = JsonConvert.DeserializeObject<PlayerEnemyData>(json);
             return Content("Success!");
         }
     }

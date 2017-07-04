@@ -1,10 +1,10 @@
 ﻿abstract class Entity {
-    protected Name: string;
-    protected Attack: number;
-    protected Defense: number;
-    protected Life: number;
-    protected Mana: number;
-    protected Stamina: number;
+    public Name: string;
+    public Attack: number;
+    public Defense: number;
+    public Life: number;
+    public Mana: number;
+    public Stamina: number;
 
     set name(name: string) {
         this.Name = name;
@@ -33,6 +33,4 @@
     get stamina(): number {
         return this.Stamina;
     }
-
-
 }
