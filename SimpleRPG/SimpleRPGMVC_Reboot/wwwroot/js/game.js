@@ -7,14 +7,18 @@ function initializeBattle() {
         url: '/Battle/Initialize',
         dataType: 'json',
         success: function (data) {
-            var playerData = data.player;
-            var enemyData = data.enemy;
-            currentPlayer = new Player(playerData.name, playerData.attack, playerData.defense, playerData.life, playerData.mana, playerData.stamina, playerData.experience);
-            currentEnemy = new Enemy(enemyData.name, enemyData.attack, enemyData.defense, enemyData.life, enemyData.mana, enemyData.stamina);
+            instantiatePlayerAndBattleFromData(data);
             updateBattle();
             setListeners();
         }
     });
+}
+//todo: tie character to database
+function instantiatePlayerAndBattleFromData(data) {
+    var playerData = data.player;
+    var enemyData = data.enemy;
+    currentPlayer = new Player(playerData.name, playerData.attack, playerData.defense, playerData.life, playerData.mana, playerData.stamina, playerData.experience);
+    currentEnemy = new Enemy(enemyData.name, enemyData.attack, enemyData.defense, enemyData.life, enemyData.mana, enemyData.stamina);
 }
 function updateBattle() {
     currentBattle = new Battle(currentPlayer, currentEnemy);
