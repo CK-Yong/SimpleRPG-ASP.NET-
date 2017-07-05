@@ -5,7 +5,7 @@
         life = 100,
         mana = 100,
         stamina = 100,
-        experience = 0) {
+        _experience = 0) {
         super();
         this.Name = name;
         this.Attack = attack;
@@ -13,7 +13,7 @@
         this.Life = life;
         this.Mana = mana;
         this.Stamina = stamina;
-        this.Experience = experience;
+        this.Experience = _experience;
     }
 
     private Experience = 0;

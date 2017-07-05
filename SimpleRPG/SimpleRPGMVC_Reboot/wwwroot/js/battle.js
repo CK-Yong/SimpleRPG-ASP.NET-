@@ -6,11 +6,13 @@ class Battle {
             return $.ajax({
                 type: 'POST',
                 url: '/Battle/Attack/',
-                dataType: 'text',
+                dataType: 'json',
                 contentType: 'application/json',
                 data: data,
                 success: function (data) {
-                    alert(data);
+                    $.extend(currentBattle.Player, data.player);
+                    $.extend(currentBattle.Enemy, data.enemy);
+                    updateBattle();
                 }
             });
         };
@@ -20,8 +22,20 @@ class Battle {
     get Player() {
         return this.player;
     }
+    set Player(value) {
+        if (value.name !== this.player.name || value.attack !== this.player.attack) {
+            return;
+        }
+        this.player = value;
+    }
     get Enemy() {
         return this.enemy;
+    }
+    set Enemy(value) {
+        if (value.name !== this.enemy.name || value.attack !== this.enemy.attack) {
+            return;
+        }
+        this.Enemy = value;
     }
     isOver() {
         return this.player.life <= 0 || this.enemy.life <= 0;

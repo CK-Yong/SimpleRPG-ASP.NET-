@@ -11,8 +11,22 @@
         return this.player;
     }
 
+    set Player(value: Player) {
+        if (value.name !== this.player.name || value.attack !== this.player.attack) {
+            return;
+        }
+        this.player = value;
+    }
+
     get Enemy(): Enemy {
         return this.enemy;
+    }
+
+    set Enemy(value: Enemy) {
+        if (value.name !== this.enemy.name || value.attack !== this.enemy.attack) {
+            return;
+        }
+        this.Enemy = value;
     }
 
     isOver(): boolean {
@@ -24,11 +38,13 @@
         return $.ajax({
             type: 'POST',
             url: '/Battle/Attack/',
-            dataType: 'text',
+            dataType: 'json',
             contentType: 'application/json',
             data: data,
             success: function (data) {
-                alert(data);
+                $.extend(currentBattle.Player,data.player);
+                $.extend(currentBattle.Enemy,data.enemy);
+                updateBattle();
             }
         });
     }

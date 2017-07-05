@@ -16,7 +16,7 @@ namespace SimpleRPGTest
         [TestInitialize]
         public void InitializeVariables()
         {
-            normalGuineaPig = enemyfactory.MakeEnemy("Rodent");
+            normalGuineaPig = enemyfactory.MakeEnemy<Rodent>();
             player = new Player("CK Yong");
         }
 

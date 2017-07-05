@@ -32,6 +32,7 @@ namespace SimpleRPGMVC.Controllers
             PlayerEnemyData data2 = data;
             Player player = data.Player;
             Enemy enemy = data.Enemy;
+            player.RegularAttack(enemy);
             return Content(playerAndEnemyToJson(player, enemy));
         }
 
