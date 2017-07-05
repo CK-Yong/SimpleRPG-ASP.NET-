@@ -42,9 +42,9 @@
             contentType: 'application/json',
             data: data,
             success: function (data) {
-                $.extend(currentBattle.Player,data.player);
-                $.extend(currentBattle.Enemy,data.enemy);
-                updateBattle();
+                $.extend(currentBattle.Player, data.player);
+                $.extend(currentBattle.Enemy, data.enemy);
+                updatePageFieldsBasedOnBattle();
             }
         });
     }

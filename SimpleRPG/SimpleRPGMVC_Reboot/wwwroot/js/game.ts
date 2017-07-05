@@ -9,7 +9,7 @@ function initializeBattle(): any {
         dataType: 'json',
         success: function (data) {
             instantiatePlayerAndBattleFromData(data);
-            updateBattle();
+            updatePageFieldsBasedOnBattle();
             setListeners();
         }
     });
@@ -33,10 +33,10 @@ function instantiatePlayerAndBattleFromData(data: any) {
         enemyData.Life,
         enemyData.Mana,
         enemyData.Stamina);
+    currentBattle = new Battle(currentPlayer, currentEnemy);
 }
 
-function updateBattle(): void {
-    currentBattle = new Battle(currentPlayer, currentEnemy);
+function updatePageFieldsBasedOnBattle(): void {
     document.getElementById("battle_isOver").innerHTML = currentBattle.isOver().toString();
     document.getElementById("player_name").innerHTML = currentBattle.Player.name.toString();
     document.getElementById("player_life").innerHTML = currentBattle.Player.life.toString();

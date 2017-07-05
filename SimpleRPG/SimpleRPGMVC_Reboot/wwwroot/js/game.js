@@ -8,7 +8,7 @@ function initializeBattle() {
         dataType: 'json',
         success: function (data) {
             instantiatePlayerAndBattleFromData(data);
-            updateBattle();
+            updatePageFieldsBasedOnBattle();
             setListeners();
         }
     });
@@ -18,9 +18,9 @@ function instantiatePlayerAndBattleFromData(data) {
     const enemyData = data.enemy;
     currentPlayer = new Player(playerData.name, playerData.Attack, playerData.Defense, playerData.Life, playerData.Mana, playerData.Stamina, playerData.Experience);
     currentEnemy = new Enemy(enemyData.Name, enemyData.Attack, enemyData.Defense, enemyData.Life, enemyData.Mana, enemyData.Stamina);
-}
-function updateBattle() {
     currentBattle = new Battle(currentPlayer, currentEnemy);
+}
+function updatePageFieldsBasedOnBattle() {
     document.getElementById("battle_isOver").innerHTML = currentBattle.isOver().toString();
     document.getElementById("player_name").innerHTML = currentBattle.Player.name.toString();
     document.getElementById("player_life").innerHTML = currentBattle.Player.life.toString();

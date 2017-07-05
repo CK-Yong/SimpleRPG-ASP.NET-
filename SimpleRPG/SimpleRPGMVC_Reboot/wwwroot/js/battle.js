@@ -12,7 +12,7 @@ class Battle {
                 success: function (data) {
                     $.extend(currentBattle.Player, data.player);
                     $.extend(currentBattle.Enemy, data.enemy);
-                    updateBattle();
+                    updatePageFieldsBasedOnBattle();
                 }
             });
         };
