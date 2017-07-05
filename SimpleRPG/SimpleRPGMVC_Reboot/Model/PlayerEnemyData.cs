@@ -10,7 +10,7 @@ namespace SimpleRPGMVC.Model
 
     public class PlayerEnemyData
     {
-        public Player player { get; set; }
-        public Enemy enemy { get; set; }
+        public Player Player { get; set; }
+        public Enemy Enemy { get; set; }
     }
 }

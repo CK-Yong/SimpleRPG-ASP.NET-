@@ -23,15 +23,22 @@ namespace SimpleRPGMVC.Controllers
         {
             Player player = new Player();
             Enemy enemy = enemyFactory.MakeEnemy("rodent");
-            return Content("{\"player\":" + JsonConvert.SerializeObject(player) + "," +
-                           "\"enemy\":" + JsonConvert.SerializeObject(enemy) + "}");
+            return Content(playerAndEnemyToJson(player, enemy));
         }
 
-        [HttpGet]
-        public IActionResult Attack(string json)
+        [HttpPost]
+        public IActionResult Attack([FromBody]PlayerEnemyData data)
         {
-            PlayerEnemyData data = JsonConvert.DeserializeObject<PlayerEnemyData>(json);
-            return Content("Success!");
+            PlayerEnemyData data2 = data;
+            Player player = data.Player;
+            Enemy enemy = data.Enemy;
+            return Content(playerAndEnemyToJson(player, enemy));
+        }
+
+        private string playerAndEnemyToJson(Player player, Enemy enemy)
+        {
+            return "{\"player\":" + JsonConvert.SerializeObject(player) + "," +
+                   "\"enemy\":" + JsonConvert.SerializeObject(enemy) + "}";
         }
     }
 }

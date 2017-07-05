@@ -21,13 +21,12 @@
             }
         }
 
-        public virtual int Attack { get; set; }
-        public virtual int Defense { get; set; }
-        public virtual int Life { get; set; }
-        public virtual int Mana { get; set; }
-        public virtual int Stamina { get; set; }
-        public virtual int Experience { get; set; }
-        public virtual bool IsDead => Life <= 0;
+        public int Attack { get; set; }
+        public int Defense { get; set; }
+        public int Life { get; set; }
+        public int Mana { get; set; }
+        public int Stamina { get; set; }
+        public bool IsDead => Life <= 0;
 
         private void TakeDamage(int incomingDamage)
         {

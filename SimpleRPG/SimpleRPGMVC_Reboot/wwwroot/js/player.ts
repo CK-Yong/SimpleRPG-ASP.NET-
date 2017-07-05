@@ -1,6 +1,4 @@
 ﻿class Player extends Entity {
-    private Experience = 0;
-
     constructor(name = "Unknown Player",
         attack = 5,
         defense = 5,
@@ -17,6 +15,8 @@
         this.Stamina = stamina;
         this.Experience = experience;
     }
+
+    private Experience = 0;
 
     get experience(): number {
         return this.Experience;

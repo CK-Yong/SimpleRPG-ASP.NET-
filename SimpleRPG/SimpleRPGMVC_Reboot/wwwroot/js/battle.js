@@ -2,12 +2,12 @@ class Battle {
     constructor(_player, _enemy) {
         //test
         this.attack = () => {
-            var data = JSON.stringify({ "Player": this.player, "Enemy": this.enemy });
+            var data = JSON.stringify({ Player: this.player, Enemy: this.enemy });
             return $.ajax({
-                type: 'post',
+                type: 'POST',
                 url: '/Battle/Attack/',
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
+                dataType: 'text',
+                contentType: 'application/json',
                 data: data,
                 success: function (data) {
                     alert(data);
