@@ -28,7 +28,7 @@
         public int Stamina { get; set; }
         public bool IsDead => Life <= 0;
 
-        private void TakeDamage(int incomingDamage)
+        protected virtual void TakeDamage(int incomingDamage, Entity attacker = null)
         {
             if (incomingDamage <= 0)
             {
@@ -38,8 +38,10 @@
             Life -= resultingDamage;
             Console.WriteLine($"{Name} took {resultingDamage} damage.");
             Console.WriteLine($"{Name} has {Life} hitpoints left.");
-            if (IsDead)
+            if (this.IsDead)
+            {
                 Kill();
+            }
         }
 
         private int ApplyDefenseModifier(int incomingDamage)
@@ -56,7 +58,7 @@
             if (adjustedAttack == 0)
                 Console.WriteLine($"{Name}'s attack missed!");
 
-            targetEnemy.TakeDamage(adjustedAttack);
+            targetEnemy.TakeDamage(adjustedAttack, this);
         }
 
         protected int DetermineCrit(int value)

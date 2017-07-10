@@ -2,17 +2,19 @@ class Battle {
     constructor(_player, _enemy) {
         //test
         this.attack = () => {
-            var data = JSON.stringify({ Player: this.player, Enemy: this.enemy });
             return $.ajax({
-                type: 'POST',
-                url: '/Battle/Attack/',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: data,
-                success: function (data) {
-                    $.extend(currentBattle.Player, data.player);
-                    $.extend(currentBattle.Enemy, data.enemy);
-                    updatePageFieldsBasedOnBattle();
+                type: "GET",
+                url: "/Battle/Attack/",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data, status, xhr) {
+                    if (xhr.getResponseHeader('Content-Type').includes("application/json")) {
+                        $.extend(currentBattle.Player, data.player);
+                        $.extend(currentBattle.Enemy, data.enemy);
+                        updatePageFieldsBasedOnBattle();
+                    }
+                    else {
+                        $("#main_container").html(data);
+                    }
                 }
             });
         };
@@ -40,5 +42,14 @@ class Battle {
     isOver() {
         return this.player.life <= 0 || this.enemy.life <= 0;
     }
+}
+function isJson(input) {
+    try {
+        JSON.parse(input);
+    }
+    catch (error) {
+        return false;
+    }
+    return true;
 }
 //# sourceMappingURL=battle.js.map

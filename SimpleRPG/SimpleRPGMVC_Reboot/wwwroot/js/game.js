@@ -16,7 +16,7 @@ function initializeBattle() {
 function instantiatePlayerAndBattleFromData(data) {
     const playerData = data.player;
     const enemyData = data.enemy;
-    currentPlayer = new Player(playerData.name, playerData.Attack, playerData.Defense, playerData.Life, playerData.Mana, playerData.Stamina, playerData.Experience);
+    currentPlayer = new Player(playerData.Name, playerData.Attack, playerData.Defense, playerData.Life, playerData.Mana, playerData.Stamina, playerData.Experience);
     currentEnemy = new Enemy(enemyData.Name, enemyData.Attack, enemyData.Defense, enemyData.Life, enemyData.Mana, enemyData.Stamina);
     currentBattle = new Battle(currentPlayer, currentEnemy);
 }

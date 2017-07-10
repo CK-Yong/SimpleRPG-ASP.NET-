@@ -19,7 +19,7 @@ function instantiatePlayerAndBattleFromData(data: any) {
     const playerData = data.player;
     const enemyData = data.enemy;
 
-    currentPlayer = new Player(playerData.name,
+    currentPlayer = new Player(playerData.Name,
         playerData.Attack,
         playerData.Defense,
         playerData.Life,

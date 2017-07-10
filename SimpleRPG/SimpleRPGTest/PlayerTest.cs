@@ -46,5 +46,13 @@ namespace SimpleRPGTest
                 normalGuineaPig.RegularAttack(player);
             Assert.IsTrue(player.IsDead);
         }
+
+        [TestMethod]
+        public void EnemyShouldRetaliate()
+        {
+            Enemy normalGuineaPig = enemyFactory.MakeEnemy<Rodent>();
+            player.RegularAttack(normalGuineaPig);
+            Assert.AreNotEqual(100, player.Life);
+        }
     }
 }

@@ -5,7 +5,7 @@
 
     public class Enemy : Entity
     {
-        public Enemy(string name = "Normal Guinea Pig", int attack = 3, int defense = 3, int life = 25, int mana = 0, int stamina = 0)
+        public Enemy(Entity enemy = null, string name = "Normal Guinea Pig", int attack = 3, int defense = 3, int life = 25, int mana = 0, int stamina = 0)
         {
             Name = name;
             Attack = attack;
@@ -20,9 +20,13 @@
             Console.WriteLine($"{Name} died.");
         }
 
-        public void PerformAttackOn(Entity target)
+        protected override void TakeDamage(int incomingDamage, Entity attacker = null)
         {
-            RegularAttack(target);
+            base.TakeDamage(incomingDamage);
+            if (attacker != null)
+            {
+                base.RegularAttack(attacker);
+            }
         }
     }
 }
