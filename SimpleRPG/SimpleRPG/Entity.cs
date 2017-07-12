@@ -36,8 +36,8 @@
             }
             var resultingDamage = ApplyDefenseModifier(incomingDamage);
             Life -= resultingDamage;
-            Console.WriteLine($"{Name} took {resultingDamage} damage.");
-            Console.WriteLine($"{Name} has {Life} hitpoints left.");
+            Battlelog.addEntry($"{Name} took {resultingDamage} damage.");
+            Battlelog.addEntry($"{Name} has {Life} hitpoints left.");
             if (this.IsDead)
             {
                 Kill();
@@ -52,12 +52,13 @@
         //Todo: make an attack class and use polymorphism to select the right attack
         public void RegularAttack(Entity targetEnemy)
         {
-            Console.WriteLine($"{Name} attacked {targetEnemy.Name}.");
+            Battlelog.addEntry($"{Name} attacked {targetEnemy.Name}.");
             var adjustedAttack = DetermineCrit(Attack);
 
             if (adjustedAttack == 0)
-                Console.WriteLine($"{Name}'s attack missed!");
-
+            {
+                Battlelog.addEntry($"{Name}'s attack missed!");
+            }
             targetEnemy.TakeDamage(adjustedAttack, this);
         }
 
@@ -66,9 +67,9 @@
             return Randomizer.getAttackModifier(value);
         }
 
-        protected virtual void Kill()
+        protected void Kill()
         {
-            Console.WriteLine($"{Name} died.");
+            Battlelog.addEntry($"{Name} died.");
         }
     }
 }

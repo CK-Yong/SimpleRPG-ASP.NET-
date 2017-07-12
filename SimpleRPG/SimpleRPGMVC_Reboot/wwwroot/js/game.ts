@@ -1,6 +1,5 @@
 ﻿var currentBattle: Battle;
-var currentPlayer: Player;
-var currentEnemy: Enemy;
+var battleLog: String;
 
 function initializeBattle(): any {
     return $.ajax({
@@ -18,8 +17,8 @@ function initializeBattle(): any {
 function instantiatePlayerAndBattleFromData(data: any) {
     const playerData = data.player;
     const enemyData = data.enemy;
-
-    currentPlayer = new Player(playerData.Name,
+    
+    var player = new Player(playerData.Name,
         playerData.Attack,
         playerData.Defense,
         playerData.Life,
@@ -27,13 +26,13 @@ function instantiatePlayerAndBattleFromData(data: any) {
         playerData.Stamina,
         playerData.Experience);
 
-    currentEnemy = new Enemy(enemyData.Name,
+    var enemy = new Enemy(enemyData.Name,
         enemyData.Attack,
         enemyData.Defense,
         enemyData.Life,
         enemyData.Mana,
         enemyData.Stamina);
-    currentBattle = new Battle(currentPlayer, currentEnemy);
+    currentBattle = new Battle(player, enemy);
 }
 
 function updatePageFieldsBasedOnBattle(): void {
@@ -47,6 +46,7 @@ function updatePageFieldsBasedOnBattle(): void {
     document.getElementById("enemy_life").innerHTML = currentBattle.Enemy.life.toString();
     document.getElementById("enemy_mana").innerHTML = currentBattle.Enemy.mana.toString();
     document.getElementById("enemy_stamina").innerHTML = currentBattle.Enemy.stamina.toString();
+    document.getElementById("battlelog_display").innerHTML = currentBattle.BattleLog.toString();
 };
 
 function setListeners(): void {

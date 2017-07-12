@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 
 namespace SimpleRPGMVC.Model
 {
+    using Newtonsoft.Json;
     using SimpleRPG;
     using SimpleRPG.MonsterFactory;
 
-    public class PlayerEnemyData
+    public class SerializedBattle
     {
-        public Player Player { get; set; }
-        public Enemy Enemy { get; set; }
+        public Player player { get; set; }
+        public Enemy enemy { get; set; }
+        public String log { get; set; }
     }
 }

@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleRPG;
 using SimpleRPG.MonsterFactory;
+using System;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using SimpleRPG.Tools;
 
 namespace SimpleRPGMVC.Controllers
 {
-    using Microsoft.AspNetCore.Http;
     using Model;
-    using Newtonsoft.Json;
 
     public class BattleController : Controller
     {
@@ -22,34 +24,53 @@ namespace SimpleRPGMVC.Controllers
         public IActionResult Initialize()
         {
             var session = HttpContext.Session;
-            Player player;
-            Enemy enemy;
-            if (session.GetString("player") == null)
-            {
-                player = new Player();
-                enemy = enemyFactory.MakeEnemy("rodent");
-            }
-            else
-            {
-                player = getPlayerFromSession(session);
-                enemy = getEnemyFromSession(session);
-            }
-            updateEntitiesInSession(player, enemy, session);
-            return Content(playerAndEnemyToJson(player, enemy));
+            var battleFromSession = retrieveBattleFromSession(session);
+            var player = battleFromSession.player;
+            var enemy = battleFromSession.enemy;
+            GenerateNewPlayerOrEnemyIfNeeded(ref player, ref enemy);
+            var battleToString = SerializeBattle(player, enemy);
+            updateEntitiesInSession(battleToString, session);
+            return Content(battleToString);
         }
 
         [HttpGet]
         public IActionResult Attack()
         {
             var session = HttpContext.Session;
-            Player player = getPlayerFromSession(session);
-            Enemy enemy = getEnemyFromSession(session);
-
+            var BattleFromSession = retrieveBattleFromSession(session);
+            var player = BattleFromSession.player;
+            var enemy = BattleFromSession.enemy;
             return getViewFromOutcome(player, enemy, session);
+        }
+
+        private void GenerateNewPlayerOrEnemyIfNeeded(ref Player player, ref Enemy enemy)
+        {
+            if (player == null || player.IsDead)
+            {
+                player = new Player();
+                enemy = enemyFactory.MakeEnemy("rodent");
+            }
+            if (enemy == null || enemy.IsDead)
+            {
+                enemy = enemyFactory.MakeEnemy("rodent");
+            }
+        }
+
+        private SerializedBattle retrieveBattleFromSession(ISession session)
+        {
+            var str = session.GetString("battle");
+            if (str == null)
+            {
+                return new SerializedBattle();
+            }
+            return JsonConvert.DeserializeObject<SerializedBattle>(str);
         }
 
         private IActionResult getViewFromOutcome(Player player, Enemy enemy, ISession session)
         {
+            player.RegularAttack(enemy);
+            var battle = SerializeBattle(player, enemy);
+            updateEntitiesInSession(battle, session);
             if (player.IsDead)
             {
                 return PartialView("Gameover");
@@ -58,32 +79,26 @@ namespace SimpleRPGMVC.Controllers
             {
                 return PartialView("Victory");
             }
-            player.RegularAttack(enemy);
-            updateEntitiesInSession(player, enemy, session);
-            return Content(playerAndEnemyToJson(player, enemy), "application/json");
+
+            return Content(battle, "application/json");
         }
 
-        private string playerAndEnemyToJson(Player player, Enemy enemy)
+        private ISession updateEntitiesInSession(String serializedBattle, ISession session)
         {
-            return "{\"player\":" + JsonConvert.SerializeObject(player) + "," +
-                   "\"enemy\":" + JsonConvert.SerializeObject(enemy) + "}";
-        }
-
-        private ISession updateEntitiesInSession(Player player, Enemy enemy, ISession session)
-        {
-            session.SetString("player", JsonConvert.SerializeObject(player));
-            session.SetString("enemy", JsonConvert.SerializeObject(enemy));
+            session.SetString("battle", serializedBattle);
             return session;
         }
 
-        private Player getPlayerFromSession(ISession session)
+        private String SerializeBattle(Player player, Enemy enemy)
         {
-            return JsonConvert.DeserializeObject<Player>(session.GetString("player"));
-        }
-
-        private Enemy getEnemyFromSession(ISession session)
-        {
-            return JsonConvert.DeserializeObject<Enemy>(session.GetString("enemy"));
+            var log = Battlelog.getLogAndClear();
+            var serializedBattle = new SerializedBattle()
+            {
+                player = player,
+                enemy = enemy,
+                log = log
+            };
+            return JsonConvert.SerializeObject(serializedBattle);
         }
     }
 }
